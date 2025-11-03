@@ -43,6 +43,28 @@ body {
     max-width: 1200px;
     margin: 100px auto;
 }
+.timeline::after{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: light-dark(white, grey);
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: 0;
+    animation: moveline 4s linear forwards;
+}
+@keyframes moveline {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100%;
+    }
+    
+}
+
 .container{
     padding: 10px 50px;
     position: relative;
@@ -60,7 +82,6 @@ body {
         transform: translateY(0px);
     }
 }
-
 .container:nth-child(1){
     animation-delay: 0.1s;
 }
@@ -83,7 +104,7 @@ body {
     border: 1px solid black;
     font-size: 14px;
     & h3{
-        color: light-dark(var(--light-text-color, black), var(--dark-text-color, white));;
+        color: light-dark(var(--light-text-color, black), var(--dark-text-color, white));
     }
     & small{
         display: inline-block;
@@ -95,7 +116,7 @@ body {
 }
 .text-box:hover{
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px light-dark(var(--light-text-color, black), var(--dark-text-color, white));;
+    box-shadow: 0 10px 20px light-dark(var(--light-text-color, black), var(--dark-text-color, white));
 }
 
 .left-container{
@@ -107,6 +128,7 @@ body {
 .container img{
     position: absolute;
     width: 40px;
+    height: 40px;
     border-radius: 50% ;
     right: -20px;
     top: 32px;
@@ -114,28 +136,6 @@ body {
 }
 .right-container img{
     left: -20px;
-}
-
-.timeline::after{
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 100%;
-    background: light-dark(white, grey);
-    top: 0;
-    left: 50%;
-    margin-left: -3px;
-    z-index: 0;
-    animation: moveline 4s linear forwards;
-}
-@keyframes moveline {
-    0%{
-        height: 0;
-    }
-    100%{
-        height: 100%;
-    }
-    
 }
 
 .left-container-arrow{
@@ -190,7 +190,7 @@ body {
         border-left: 0;
         left: -14px;
     }.container video{
-        width: 100px;
+        width: 150px;
     }
 }
 
@@ -209,9 +209,35 @@ img, video, input, textarea, section, article, nav, progress, dialog {
     border-radius: var(--radius-size, 12px);
 }
 
+video{
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    background-color: black;
+}
 img {
     max-width: 100%;
-    display: block;
+    height: auto;
+    object-fit: cover;
+}
+figure img{
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 4px solid light-dark(var(--light-text-color, black), var(--dark-text-color, white));
+    max-width: 100%;
+    height: auto;
+}
+@media screen and (max-width:600px){
+    
+    figure img{
+        max-width: 200px;        
+        max-height: 200px;
+    }
+    img{
+        max-width: 150px;
+        max-height: 150px;
+    }
 }
 
 nav ul { 

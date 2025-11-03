@@ -32,15 +32,18 @@
             <article>
                 <h2>Bio</h2>
                 <figure>
-                    <img src="IMG_5582.jpg" height="100" width="100" alt="Profile photo">
+                    <source
+                        srcset="IMG_5582.jpg 800w, IMG_5582.jpg 400w"
+                        sizes="(max-width: 600px) 200px, 400px">
+                    <img src="IMG_5582.jpg" height="400" width="400" loading="lazy" alt="Daniel smiling at camera in profile photo">
                     <figcaption><strong>Daniel Campuzano</strong> - Computer Science student</figcaption>
                 </figure>
                 <p>I am a proud first generation college student attending UCSD. My favorite classes that I've had the privlege of taking are Software Engineering, Computer Security, Web Development.</p>
             </article>
 
-            <picture>
+            <picture id="ucsd-logo">
                 <source srcset="ucsd-logo.png" > 
-                <img src="ucsd-logo.png" alt="ucsd logo" height="100" width="100">
+                <img src="ucsd-logo.png" alt="ucsd logo with trident symbol" height="300" width="300" loading="lazy">
             </picture>
 
             <article>
